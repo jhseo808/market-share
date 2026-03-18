@@ -41,6 +41,12 @@ thresholds:
 trend:
   delta_pp: 2.0        # ±2pp 기준
 
+confluence:
+  url: ""          # CONFLUENCE_URL env var
+  user: ""         # CONFLUENCE_USER env var
+  api_token: ""    # CONFLUENCE_API_TOKEN env var
+  page_id: ""      # CONFLUENCE_PAGE_ID env var
+
 output:
   raw_dir: "data/raw"
   reports_dir: "data/reports"

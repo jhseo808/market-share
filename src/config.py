@@ -38,6 +38,13 @@ def load_config(config_path: Path | None = None) -> dict[str, Any]:
     api_key = os.environ.get("ANTHROPIC_API_KEY", "")
     cfg.setdefault("anthropic", {})["api_key"] = api_key
 
+    # Inject Confluence credentials from env
+    confluence = cfg.setdefault("confluence", {})
+    confluence["url"] = os.environ.get("CONFLUENCE_URL", confluence.get("url", ""))
+    confluence["user"] = os.environ.get("CONFLUENCE_USER", confluence.get("user", ""))
+    confluence["api_token"] = os.environ.get("CONFLUENCE_API_TOKEN", confluence.get("api_token", ""))
+    confluence["page_id"] = os.environ.get("CONFLUENCE_PAGE_ID", confluence.get("page_id", ""))
+
     # Resolve relative paths to absolute
     output = cfg.get("output", {})
     for key in ("raw_dir", "reports_dir"):
