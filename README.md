@@ -157,7 +157,6 @@ python -m src.main validate-config
 
 ```
 market-share/
-├── .env                        # API 키 (git 제외)
 ├── .env.example                # API 키 템플릿
 ├── config.yaml                 # 수집 URL, 임계값, 모델 설정
 ├── requirements.txt            # 의존성 목록
