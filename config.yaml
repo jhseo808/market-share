@@ -1,0 +1,47 @@
+statcounter:
+  base_url: "https://gs.statcounter.com"
+  download_timeout: 30000  # ms
+  retry_count: 3
+  retry_backoff_base: 2  # seconds
+
+categories:
+  browser:
+    path: "/browser-market-share/all/south-korea/"
+    description: "브라우저 (전체 기기)"
+  browser-version:
+    path: "/browser-version-market-share/all/south-korea/"
+    description: "브라우저 버전"
+  ios-version:
+    path: "/ios-version-market-share/mobile-tablet/south-korea/"
+    description: "iOS 버전 (모바일+태블릿)"
+  android-version:
+    path: "/android-version-market-share/mobile-tablet/south-korea/"
+    description: "Android 버전 (모바일+태블릿)"
+  device-vendor:
+    path: "/vendor-market-share/mobile-tablet-console/south-korea/"
+    description: "디바이스 제조사"
+  desktop-os:
+    path: "/os-market-share/desktop/south-korea/"
+    description: "데스크탑 OS"
+  device-type:
+    path: "/device-market-share/all/south-korea/"
+    description: "디바이스 타입 (모바일/태블릿/데스크탑)"
+
+analysis:
+  model: "claude-sonnet-4-6"
+  temperature: 0
+  max_tokens: 4096
+  top_n_items: 10
+
+thresholds:
+  must_test: 10.0      # >10%
+  should_test: 3.0     # 3-10%
+  # low_priority: <3%
+
+trend:
+  delta_pp: 2.0        # ±2pp 기준
+
+output:
+  raw_dir: "data/raw"
+  reports_dir: "data/reports"
+  report_prefix: "market-share-report"
